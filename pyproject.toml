@@ -5,6 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "dynaconf>=3.3.2",
+    "openai>=2.45.0",
     "pandas>=3.0.3",
 ]
 
