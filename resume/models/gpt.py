@@ -6,7 +6,11 @@ class GPTModels:
         self.client = OpenAI(api_key=api_key)
         self.model = model
 
-    def run(self, prompt, system_prompt="You are a helpful assistant"):
+    def run(
+        self,
+        prompt,
+        system_prompt="Act as an assistant that extracts revelent information from resume.",
+    ):
         response = self.client.responses.create(
             model=self.model,
             input=[
