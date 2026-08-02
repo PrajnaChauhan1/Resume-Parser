@@ -1,8 +1,10 @@
 from openai import OpenAI
 
+from config import settings
+
 
 class GPTModels:
-    def __init__(self, api_key, model="gpt-5.5"):
+    def __init__(self, api_key, model=settings.models.name):
         self.client = OpenAI(api_key=api_key)
         self.model = model
 
@@ -14,10 +16,10 @@ class GPTModels:
         response = self.client.responses.create(
             model=self.model,
             input=[
-                {"role": "developer", "content": "Talk like a pirate."},
+                {"role": "system", "content": system_prompt},
                 {
                     "role": "user",
-                    "content": "How do I check if a Python object is an instance of a class?",
+                    "content": prompt,
                 },
             ],
         )

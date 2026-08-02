@@ -1,3 +1,4 @@
+from config import settings
 from resume.models.gpt import GPTModels
 
 
@@ -16,8 +17,7 @@ You are provided with an image file of a resume. Extract all the informations li
 NOTE: Follow the above format and extract informastion if and only if available.
 
 """
-
-api_key = ""
+api_key = settings.openai_api_key
 
 
 model = GPTModels(api_key=api_key)
